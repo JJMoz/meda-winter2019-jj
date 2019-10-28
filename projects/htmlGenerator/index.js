@@ -1,10 +1,11 @@
 var fs = require('fs');
 var terminalText = process.argv;
 
-if (terminalText[3] == undefined) {
-    console.log("There was no color specificed, so the default what will be used");
+// or || they put "none" when they want no color or put a color. if they put none then the color is "transparent"
+if (terminalText[3] == undefined || terminalText[3]== 'none') {
+    console.log("There was no color specificed, so the default is what will be used");
 
-    terminalText[3] = "white";
+    terminalText[3] = "transparent";
 
 }
 
@@ -16,7 +17,9 @@ body {
 
 
 }`;
-var htmlBody =terminalText[4] ;
+// Homework answer
+//var htmlBody = '<p>$terminaltext[4]</p>'; I had "terminal[4]" and p tags in between body tags below in html
+var htmlBody =`<p>${terminalText[4]}</p>` ; 
 var htmlFileName = terminalText[2];
 var html;
 
@@ -37,9 +40,11 @@ html =`
     </head>
 
     <body>
-     <p>${htmlBody}</p>
+     ${htmlBody}
     </body>
 </html> `;
+
+//Homework take away <p> tag inbetween <body> tags...update took away p tags
 
 // kills the program if the person does not fill out the name
 if (htmlFileName == "" || undefined ) {
