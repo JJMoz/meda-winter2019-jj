@@ -3,10 +3,10 @@
 
 //Math.random();
 
-//Converts a JSOn string into an actual JavaScript Object.
+//Converts a JSON string into an actual JavaScript Object.
 //JSON.parse();
 
-// Converts a JavaScript Object inot acutal JSON string.
+// Converts a JavaScript Object into acutal JSON string.
 //JSON.stringify();
 
 //JavsScript object
@@ -33,7 +33,7 @@ exampleObject.aCoolFunction();
 console.log(exampleObject);
 
 
-// Console logging JSOn representation of the same Object.
+// Console logging JSON representation of the same Object.
 var jsonText = JSON.stringify(exampleObject);
 console.log(jsonText);
 
