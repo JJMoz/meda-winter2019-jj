@@ -61,9 +61,8 @@ class Employee {
     // firstName is the (parametor), constructor because it is building/ contructing the object
     constructor(firstNameValue, salary, license, status, timesheet) {
         console.log("A new employee was created");
-        //properties are written  like varibles, keyword is "this"--refers to the object it is in
+        //properties are written  like varibles, keyword is "this"--refers to the object it is in   // "this" means the current object you are in now
         this.firstName = firstNameValue;
-        // "this" means the current object you are in now
         this.salary = salary;
         this.license = license;
         this.status = status;
