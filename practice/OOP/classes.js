@@ -81,7 +81,7 @@ class Employee {
 let firstEmployee = new Employee("Eduardo", 70000, "2jo2klf", "active", 8);
 let secondEmployee = new Employee("Barbara", 120000, "oi23id","inactive", 4);
 let thirdEmployee = new Employee(null, null, null, null, null);
-
+//bcheneque
 
 firstEmployee.Work();
 secondEmployee.Work();
