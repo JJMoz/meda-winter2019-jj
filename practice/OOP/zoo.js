@@ -38,11 +38,11 @@ class Mammal extends Animal{
     }
 //Methods  // One of three methods that belong to the mammal class.
     eat() {
-        console.log(this.type + " eats food.")
+        console.log(this.type + " eats food.");
 
     }
     sleep () {
-        console.log(this.type + " sleeps. ")
+        console.log(this.type + " sleeps. ");
     }
 // let them decide how many years it lives for
     live(years) {
