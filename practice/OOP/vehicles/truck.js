@@ -13,8 +13,6 @@ const truck = class Truck extends Car {
     }
 
 }
-// Can this truck handle the weight?
-// Is the tons less than or equal to the capacity that this truck can handle?
 
 
 
