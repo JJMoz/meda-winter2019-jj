@@ -19,3 +19,5 @@ const Helicopter = class Helicopter extends Vehicle {
 }
 
 module.exports = Helicopter;
+
+

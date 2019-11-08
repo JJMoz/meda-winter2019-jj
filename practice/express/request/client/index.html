@@ -1,0 +1,51 @@
+<!--FRONTEND  (client- code runs on browser)-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<!--brings in jquery CDN instead of  downloading it-->
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            background-color: green;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    
+    <p>I am hungry </p>
+
+    
+    <script>
+        // jquery code below
+        $(document).ready(() => {
+//         changing string into .....
+            let data = { 
+                message: "Hello there"
+            };
+
+          // Sends a post requst to the URL described. Arguments in order: URL, date, Callback Function. command shift 4 
+          // path, what we want to send, 
+            $.post("http://localhost:3000/updateData", data, (dataFromServer) => {
+                console.log("The server has responded");
+                console.log(dataFromServer);
+
+            });
+
+        });
+    </script>
+    
+</body>
+
+</html>
+

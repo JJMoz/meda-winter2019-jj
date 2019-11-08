@@ -1,0 +1,15 @@
+
+
+How many Cars do I have that were built between 1940-1960?
+
+1) [Array] Look at where this year data is stored, found in object.year.
+2) [Loop] In order to detect cars between 1940 and 1960 we will go through all the cars.
+3) Create a counter that will count the cars that did match
+4) Write a condition (If) inside a loop that will check for the year of each car ans see if it's outside of 1960 and 1940
+
+5) if it does match year increase counter.
+
+Class:  to have uniform data. 
+
+
+

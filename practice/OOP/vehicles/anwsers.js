@@ -34,3 +34,38 @@ let mpgAverage = total / data.cars.length;
 
 console.log("What is the average miles per gallon of these 100 cars?");
 console.log(mpgAverage + " MPG");
+
+
+// QUESTION 1 END
+
+// QUESTION 2 START
+//How many Cars do I have that were built between 1940-1960.
+
+console.log("How many Cars do I have that were built between 1940-1960? including 1940 and 1960");
+
+// 1) Array.....data.cars is from above. converted json file  into data.
+let cars = data.cars;
+// console below is testing the Array above
+console.log(cars[0].year);
+
+// 3)
+let carBetween1940And1960 = 0;
+
+// 2)Loop to print out all the objects in the Array
+for (let i = 0; i < cars.length; i++) {
+
+    let currentCar = cars[i];
+// 4)
+    if (currentCar.year >= 1940 && currentCar.year <= 1960 ) {
+        // 5)
+        carBetween1940And1960 = carBetween1940And1960 +1;
+       // carBetween1940And1960 += 1;  -----> another way to do above.
+    }
+
+}
+
+// 6) console log anwser
+console.log(carBetween1940And1960);
+
+// console below is testing the Loop above
+//console.log(cars[cars/length])

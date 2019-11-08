@@ -56,7 +56,7 @@ function getAverageAge(personArray) {
 
 // CLASSES is a blueprint or template for a Object, Example you use the blueprint to build a house.
 
-//keyword to creating a class is "class". Use capital at begining.
+//keyword to creating a class is "class". Use capital at begining of class Name.
 class Employee {
     // firstName is the (parametor), constructor because it is building/ contructing the object
     constructor(firstNameValue, salary, license, status, timesheet) {
