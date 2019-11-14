@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Submit your Comment</title>
 <!--brings in jquery CDN instead of  downloading it-->
     <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -16,36 +16,112 @@
             background-color: green;
         }
 
+        h1 {
+            text-align: center;
+        }
+
     </style>
 
 </head>
 
 <body>
+    <div id="comments-section">
+        <h1>Comments Section</h1>
+        <ul id="comments">
+
+
+
+        </ul>
+    </div>
+
+    <div id= "comment-submission">
+        <h1>Comment Submision Form</h1>
+        
+        <h2>Instructions</h2>
+        <ol>
+            <li>Fill in the form</li>
+            <li>Press the Submit button</li>
+        </ol>
+        <form id="commentSubmission">
+        <!--there are  different input "types" you can use in HTML: ie text, number, checkbox etc, reset defines a reset button that will reset all form values tho their default values, -->
+            <label for="fname">First Name</label> <br>
+            <input name="fname" id="fname" type="text"/> 
+            <br>
+            <label for="lname">Last Name</label> <br>
+            <input name="lname" id="lname" type="text"/>
+            <br>
+            <label for="email">Email</label> <br>
+            <input name="email" id="email" type="email"/>
+            <br>
+            <label for="age">Age</label> <br>
+            <input name="age" id="age" type="number" />
+            <br><br>
+            <label for="comment">Your Comment</label> <br>
+            <textarea rows="10" cols="80" id="comment"> </textarea>
+            <br>
+            <!--Input type not a button, input is to reset form-->
+        <!-- <input type="reset" value = "Reset"/>-->
+        </form>
+    <!--another way to do input type= "reset"...-->
+        <input form="commentSubmission" type="reset" value="Reset"/>
+            <!--submit button needs to be outside the form tag-->
+            <button id="submit">Submit</button>
+    </div>
+
+
+
 
     
-    <p>I am hungry </p>
 
     
     <script>
         // jquery code below
         $(document).ready(() => {
-//         changing string into .....
+
+// arrow function inside click. This listens to the "Submit" button an the user presses on it to confirm they ae done and would like to submit to the server
+            $("#submit").click(() => {
+
+                //Add timestamp in the future by using:
+                // Date.protoype.toLocaleDateString();
+
+                //         changing string into .....
             let data = { 
-                message: "Hello there"
+                message: $("#comment").val(),
+                //key         value,  .val is a method of jQuery that lets you grab value of the form field you selected
+                firstName: $("#fname").val(),
+                lastName: $("#lname").val(),
+                email: $("#email").val(),
+                age: $("#age").val(),
+
             };
 
-          // Sends a post requst to the URL described. Arguments in order: URL, date, Callback Function. command shift 4 
-          // path, what we want to send, 
-            $.post("http://localhost:3000/updateData", data, (dataFromServer) => {
-                console.log("The server has responded");
-                console.log(dataFromServer);
+            // Sends a post requst to the URL described. Arguments in order: URL, date, Callback Function. command shift 4 
+            // path, what we want to send, 
+                $.post("http://localhost:3000/submitComment", data, ( ) => {
+                // console.log("The server has responded");
+                    console.log("The Server has responded!");
+
+                    $.post("http://localhost:3000/loadComments", {},(commentsReceived) => {
+                     //   console.log(commentsReceived.commentsArray[1].firstName);
+
+                        let cArray = commentsReceived.commentsArray;                     
+
+                        for (let i = 0; i < cArray.lenth; i++){
+                            let commentString = "<li>" + cArray[i].message + " - " + cArray[i].firstName + "</li>";
+                            $("#comments").append(commentString);
+
+                         }
+
+                     });
+
+                 });
 
             });
 
-        });
-    </script>
-    
-</body>
 
+        });
+    </script>    
+</body>
 </html>
+
 
