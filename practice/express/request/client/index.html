@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Submit your Comment</title>
-<!--brings in jquery CDN instead of  downloading it-->
+<!--brings in jquery CDN instead of  downloading it..... jQuery CDN-->
     <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -25,6 +25,7 @@
 </head>
 
 <body>
+    <!-- The comments  section of the webpage START-->
     <div id="comments-section">
         <h1>Comments Section</h1>
         <ul id="comments">
@@ -34,14 +35,19 @@
         </ul>
     </div>
 
+    <!--  The comment section on the webpage End -->
+
+    <!--  The comment submission section START -->
+
     <div id= "comment-submission">
-        <h1>Comment Submision Form</h1>
+        <h1>Comment Submission Form</h1>
         
         <h2>Instructions</h2>
         <ol>
             <li>Fill in the form</li>
             <li>Press the Submit button</li>
         </ol>
+        <!--  Form for accepting comments. NEED SANITIZATION ON FRONT AND BACK -->
         <form id="commentSubmission">
         <!--there are  different input "types" you can use in HTML: ie text, number, checkbox etc, reset defines a reset button that will reset all form values tho their default values, -->
             <label for="fname">First Name</label> <br>
@@ -68,23 +74,23 @@
             <button id="submit">Submit</button>
     </div>
 
-
-
-
-    
+    <!-- The comment submission section END -->
 
     
     <script>
-        // jquery code below
+        // jquery code below.... All code that RUNS must be written in the document rady function.
         $(document).ready(() => {
+            // Update the list of comments.
+            updateCommentsList();
 
 // arrow function inside click. This listens to the "Submit" button an the user presses on it to confirm they ae done and would like to submit to the server
+    //...Attach a listnerner to the Submit button
             $("#submit").click(() => {
 
                 //Add timestamp in the future by using:
                 // Date.protoype.toLocaleDateString();
 
-                //         changing string into .....
+                // changing string into ..... Build the object thta we will send to the back end. Agree with the backend on how this object mjust be formatted.
             let data = { 
                 message: $("#comment").val(),
                 //key         value,  .val is a method of jQuery that lets you grab value of the form field you selected
@@ -99,27 +105,40 @@
             // path, what we want to send, 
                 $.post("http://localhost:3000/submitComment", data, ( ) => {
                 // console.log("The server has responded");
-                    console.log("The Server has responded!");
-
-                    $.post("http://localhost:3000/loadComments", {},(commentsReceived) => {
-                     //   console.log(commentsReceived.commentsArray[1].firstName);
-
-                        let cArray = commentsReceived.commentsArray;                     
-
-                        for (let i = 0; i < cArray.lenth; i++){
-                            let commentString = "<li>" + cArray[i].message + " - " + cArray[i].firstName + "</li>";
-                            $("#comments").append(commentString);
-
-                         }
-
-                     });
-
+                // Update the list of comments
+                 updateCommentsList();
                  });
 
             });
 
 
         });
+        // Defining the function that will update our list of comments
+        function updateCommentsList(){
+            // Send a request to get ALL comments. We use post but we send an empty object.
+            $.post("http://localhost:3000/loadComments", {},(commentsReceived) => {
+                     //   console.log(commentsReceived.commentsArray[1].firstName);
+
+                //stops all comments from being reloaded making dublicate comments each time page is reloaded/ a comment is added....Clear out any existing comments form the comments list
+                    $("#comments").empty();
+
+                    // Create a variable that "renames" the comments array. make it coode look nicer/easier
+                        let cArray = commentsReceived.commentsArray;   
+                        
+                        
+                    // Loop through each object inside of the comments array (cArray)
+                        for (let i = 0; i < cArray.lenth; i++){
+                            //For each object, build a string that looks lik an HTML li element.
+                            let commentString = "<li>" + cArray[i].message + " - " + cArray[i].firstName + "</li>";
+                            // Add it to the HTML ul element that has the comments id.
+                            $("#comments").append(commentString);
+
+                         }
+
+            });
+
+
+        }
     </script>    
 </body>
 </html>

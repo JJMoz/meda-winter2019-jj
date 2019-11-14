@@ -24,7 +24,7 @@ console.log("Express server running on port " + port);
 // Needed to read data sent through POST request.....body- parser package (comes with express) is need to read data sent through POST request
 //Needed to understand data from Server.
 app.use(bodyParser.json());
-// Gives Body Parsr specific option to run off of
+// Gives Body Parsr specific option to run off of... should extended below be dark blue?
 app.use(bodyParser.urlencoded({extended: false}));
 
 // ABOVE IS BASIC SETUP FOR EXPRESS (LIKE THE HTML TEMPLATE)
@@ -83,7 +83,7 @@ app.post("/submitComment", (request, response) => {
     fs.writeFileSync(filename, comments, "utf8");
     console.log("Note: No save file detected, creating New file. New comment Saved to Had Drive");
 
-   }
+}
 
 
    // let data = {
@@ -93,8 +93,7 @@ app.post("/submitComment", (request, response) => {
   // 200 is http respond status it is the default value that everything is "OK". If you do not want to send any data back, you can use .sendStatus(). You can only use sendStaus or send once to "fulfill" front-end request. 
  response.sendStatus(200);
 
-   // will send "data" back
-   //response.send(data);
+
 
 });
 // parameters created the varibles. 
@@ -117,4 +116,3 @@ app.post("/loadComments", (request, response) => {
     }
 
 });
-
