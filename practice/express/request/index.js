@@ -112,7 +112,7 @@ app.post("/loadComments", (request, response) => {
     } else {
         //..... IF it does not exist, then send an error 500 to the requester(front-end)
         response.sendStatus(500);
-        // 500 error = internal server error
+        // 500 error = internal server error amanda penny
     }
 
 });
