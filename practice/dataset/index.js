@@ -10,11 +10,9 @@ const dataset = fs.readFileSync("Eviction_Notices.csv", "utf8");
 //Then made a varible for the array (dataArray)
 const dataArray = dataset.split("\n");
 
-
-// Renamed the 23rd record into a spicific variable name.
-const singleEntry = dataArray[22];
-
 console.log(dataArray.length);
+
+let total = 0
 
 // BELOW PULLS JUST THE EVICTIONS FROM 2018, ALL THE 2018 LINES
 for (let i = 0; i < dataArray.length; i++) {
@@ -23,13 +21,16 @@ for (let i = 0; i < dataArray.length; i++) {
 
     // used === instead of == because 1 was coming up wrong, ====  equal and same datatype.
     if (pass === true){
-    console.log("The line entry" + i + " is from the year 2018: " + detect2018(dataArray[22]));
+    console.log("The line entry" + i + " is from the year 2018: " + detect2018);
+    total++;
     } else if (pass === 1){
         console.log("The line" + (i +1) + "has issues! please check.");
         console.log(dataArray[i]);
     }
 
 }
+
+console.log(total);
 
 
 
