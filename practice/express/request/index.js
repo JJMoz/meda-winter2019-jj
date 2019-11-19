@@ -2,7 +2,7 @@
 
 //Includes into our code the FS package (builtin)
 const fs = require ("fs");
-// Includes inot our code the Express provided by NPM
+// Includes in our code the Express provided by NPM
 const express = require("express");
 // Inlcude inot our code Body Parser, comes with Express
 const bodyParser = require("body-parser");
