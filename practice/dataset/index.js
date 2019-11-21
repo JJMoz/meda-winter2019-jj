@@ -87,3 +87,6 @@ function detect2018(entry) {
             return false;
         }
 }
+
+
+//industryexplorers.com
