@@ -8,7 +8,7 @@
 const fs = require("fs");
 
 
-// Because we are going to be creating a whole buch of objects, we built a Class for object consistency.
+// Because we are going to be creating a whole bunch of objects, we built a Class for object consistency.
 class EvictionNotice {
     // Order of parameters DO matter, but order of properties DO NOT matter.
     constructor(month, zip, ellisAct, condoConversion) {
@@ -150,8 +150,9 @@ console.log("Which zip code had the most evictions for 2018? ");
 
 let zipCodes = ["94102 94103 94104 94105 94107 94108 94109 94110 94111 94112 94114 94115 94116 94117 94118 94121 94122 94123 94124 94127 94128 94129 94130 94131 94132 94133 94134 94143 94158 94188 ".split(" ") ];
 
+// concat adds more zipcodes to the zipcode array
 zipCodes = zipCodes.concat( "94119 94120 94125 94126 94140 94141 94142 94146 94147 94159 94164 94172".split(" ") );
-
+// concat adds more zipcodes to the zipcode array
 zipCodes = zipCodes.concat("94137 94139 94144 94145 94151 94160 94161 94163 94177".split(" ") );
 
 
