@@ -176,10 +176,10 @@ for (let i = 0; i < dataObjectsArray.length; i++) {
     }
 
 }
-//console.log ('The zip code with the most evictions is ${maxNumber}. '
-//);
+console.log ('The zip code with the most evictions is ${maxNumber}. '
+);
 
-console.log ("The zip code with the most evictions is " + maxNumber);
+// console.log ("The zip code with the most evictions is " + maxNumber);
 
 // HOMEWORK
 //How many evictions per zip code then tell me which zip code has the most evictions
