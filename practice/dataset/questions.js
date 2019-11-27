@@ -109,7 +109,7 @@ for (let i = 0; i < months.length; i++) {
     }
 }
 
-console.log("The month with highest evictions of 2018 was month " + (highestValue + 1) + " , witha total of " + highestValue + " evictions. ");
+console.log("The month with highest evictions of 2018 was month " + (highestValue + 1) + " , with a total of " + highestValue + " evictions. ");
 
 
 // Question 2
@@ -162,10 +162,10 @@ let maxNumber = zipCodes[0];
 
 
 for (let i = 0; i < dataObjectsArray.length; i++) {
+//[i].zip;
+    let currentZipCode = dataObjectsArray[i]; 
 
-    let currentZipCode = dataObjectsArray[i].zip; 
-
-// === instead 
+// === instead of !==
     if (occurances[currentZipCode] === undefined) {
             occurances[currentZipCode]++;
     } else {
