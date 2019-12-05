@@ -1,3 +1,7 @@
+
+let updateThis = 0;
+
+
 async function firstAsync() {
     let action = new Promise((resolve, reject) => {
         setTimeout(() => { resolve("Value to send to the Promise so it completes."); }, 3000);
