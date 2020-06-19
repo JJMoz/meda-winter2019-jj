@@ -5,3 +5,5 @@
 // Average score of unscheduled inspections?
 // Average score of scheduled(follow-up) Reinspections?
 
+// include the fs package to read files:
+const fs = require("fs");
